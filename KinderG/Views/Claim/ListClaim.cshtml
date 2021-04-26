@@ -1,0 +1,53 @@
+﻿@model IEnumerable<KinderG.Models.Claim>
+
+@{
+    ViewBag.Title = "ListClaim";
+}
+
+<center><h2>List of claim</h2></center>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+
+        <th style="color:black; font-size:10pt;" ng-hide="true"> Username</th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">Email</th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">Role</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+           
+                @Html.DisplayFor(modelItem => item.subjectC)
+           
+            </td>
+            <td>
+          
+                @Html.DisplayFor(modelItem => item.contentC)
+            
+            </td>
+            <td>
+            
+                @Html.DisplayFor(modelItem => item.type)
+           
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+
+
+
+</table>
+

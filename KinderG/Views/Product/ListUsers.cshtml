@@ -1,0 +1,56 @@
+﻿
+@model IEnumerable<KinderG.Models.Product>
+@{
+    ViewBag.Title = "ListUsers";
+    Layout = "~/Views/Shared/_Module.cshtml";
+}
+
+<h2>ListList products</h2>
+center><h2>List of products</h2></center>
+
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("searchString")
+    <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4" type="submit" value="Search" id="submit">
+        <i class="fs-12 fa fa-search" aria-hidden="true"></i>
+    </button>
+}
+<table class="table">
+    <tr>
+
+        <th style="color:black; font-size:10pt;" ng-hide="true"> Nom produit</th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">Stock</th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">Options</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+            <th style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.nomProd)
+            </th>
+            </td>
+            <td>
+            <th style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.stock)
+            </th>
+            </td>
+         
+
+            <td>
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.id }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+
+
+            </td>
+        </tr>
+    }
+
+
+
+
+</table>
+
