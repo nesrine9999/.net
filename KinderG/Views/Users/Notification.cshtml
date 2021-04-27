@@ -1,0 +1,61 @@
+﻿@model IEnumerable<KinderG.Models.Notification>
+
+@{
+    ViewBag.Title = "Notification";
+    Layout = "~/Views/Shared/_Invitation.cshtml";
+}
+
+<h2>Notification</h2>
+
+<table class="table">
+    <tr>
+
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            Title
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            Content
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            Seen
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            Sender's Name
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.titleN)
+    </td>
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.contentN)
+    </td>
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.msgLu)
+    </td>
+  
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.user.firstName)
+    </td>
+
+    <td>
+
+        @Html.ActionLink("Delete", "deleteNotification", new { id = item.id})
+
+
+    </td>
+
+</tr>
+
+    }
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</table>

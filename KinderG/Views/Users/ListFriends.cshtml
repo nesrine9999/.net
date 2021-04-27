@@ -1,0 +1,44 @@
+﻿@model IEnumerable<KinderG.Models.Invitation>
+@{
+    ViewBag.Title = "Module";
+    Layout = "~/Views/Shared/_Invitation.cshtml";
+}
+
+<h2>My Friends</h2>
+
+
+<table class="table">
+    <tr>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.receive.firstName)
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.receive.lastName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.receive.firstName)
+    </td>
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.receive.lastName)
+    </td>
+    <td>
+        @Html.ActionLink("Send Message", "CreateM", new { id = item.receive.idU }) |
+        @Html.ActionLink("Message Box", "ListM", new { id = item.receive.idU }) |
+        @Html.ActionLink("Delete Friend", "deleteAmis", new { id = item.id })
+    </td>
+</tr>
+    }
+
+</table>

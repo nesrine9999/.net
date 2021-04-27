@@ -1,0 +1,49 @@
+﻿@model IEnumerable<KinderG.Models.User>
+
+@{
+    ViewBag.Title = "Module";
+    Layout = "~/Views/Shared/_Module.cshtml";
+}
+
+<h2>List Users</h2>
+
+
+<table class="table">
+    <tr>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+        
+
+
+            <td>
+
+                @Html.ActionLink("Send Message", "Create", new { id = item.idU }, new { email = item.email }) |
+                @Html.ActionLink("Send Mail", "sendmail", new { email = item.email }) |
+                @Html.ActionLink("Message Box", "List", new { id = item.idU })
+
+            </td>
+        </tr>
+    }
+
+
+</table>

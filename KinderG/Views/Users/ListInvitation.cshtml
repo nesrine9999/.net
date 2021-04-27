@@ -1,0 +1,42 @@
+﻿@model IEnumerable<KinderG.Models.Invitation>
+
+@{
+    ViewBag.Title = "Module";
+    Layout = "~/Views/Shared/_Invitation.cshtml";
+}
+
+<h3>My  Invitations Sender</h3>
+
+
+<table class="table">
+    <tr>
+
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.etat)
+        </th>
+
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            Invitation Receiver
+        </th>
+
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.etat)
+    </td>
+  
+    <td style="color:black; font-size:10pt;" ng-hide="true">
+        @Html.DisplayFor(modelItem => item.receive.firstName)
+    </td>
+
+   
+
+</tr>
+    }
+
+</table>

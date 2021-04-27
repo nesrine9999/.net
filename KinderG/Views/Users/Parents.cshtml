@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KinderG.Models.User>
+@{
+    ViewBag.Title = "Module";
+    Layout = "~/Views/Shared/_Invitation.cshtml";
+}
+
+
+
+<table class="table">
+    <tr>
+
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+
+            <td>
+        
+
+                            @Html.ActionLink("Send", "Send", new { id = item.idU, onclick = "return changelanguagefunc(this)"})}
+             
+
+            </td>
+        </tr>
+    }
+<div>
+   
+        @Html.ActionLink("Back to List", "ListInvitation")
+ 
+        </div>
+
+    </table>
+
+
+<script>
+    $(function () {
+        var selected_lan = localStorage.getItem("selected_language");
+
+        if (selected_lan != null || selected_lan!="") {
+            $("#link_" + selected_lan).addClass("disabledlink");
+        }
+    })
+
+
+    function changelanguagefunc(el) {
+        if (!confirm('Are you sure to change the language?')) {
+            return false;
+        }
+
+        localStorage.setItem("selected_language", $(el).text());
+        return ture;
+    }
+</script>

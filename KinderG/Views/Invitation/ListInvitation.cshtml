@@ -1,0 +1,43 @@
+﻿@model IEnumerable<KinderG.Models.Invitation>
+
+@{
+    ViewBag.Title = "ListInvitation";
+}
+
+<h2>ListInvitation</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.etat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.send.idU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.receive.idU)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.etat)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.send.idU)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.receive.idU)
+    </td>
+
+
+</tr>
+}
+
+</table>

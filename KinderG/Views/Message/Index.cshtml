@@ -1,0 +1,53 @@
+﻿@model IEnumerable<KinderGarten.Models.Message>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idmessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.objectM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contentM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.idU)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idmessage)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.objectM)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.contentM)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.user.idU)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.idmessage }) |
+        @Html.ActionLink("Details", "Details", new { id = item.idmessage }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.idmessage })
+    </td>
+</tr>
+}
+
+</table>

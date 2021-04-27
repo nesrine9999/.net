@@ -1,0 +1,67 @@
+﻿@model IEnumerable<KinderG.Models.Message>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Your List Message</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.objectM)
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.contentM)
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.dateSend)
+        </th>
+        <th style="color:black; font-size:10pt;" ng-hide="true">
+            @Html.DisplayNameFor(model => model.msgLu)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.objectM)
+            </td>
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.contentM)
+            </td>
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.dateSend)
+            </td>
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.msgLu)
+            </td>
+            <td style="color:black; font-size:10pt;" ng-hide="true">
+                @Html.DisplayFor(modelItem => item.fr)
+            </td>
+            <td>
+                @{string path = "~/Content/Upload/" + @item.picture;}
+
+                <img src="@Url.Content(path)" width="50" height="50" />
+            </td>
+            <td>
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.idmessage })
+
+
+            </td>
+
+        </tr>
+
+    }
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</table>
+

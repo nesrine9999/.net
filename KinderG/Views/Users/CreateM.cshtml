@@ -1,0 +1,49 @@
+﻿@model KinderG.Models.Message
+
+@{
+    ViewBag.Title = "Module";
+    Layout = "~/Views/Shared/_Invitation.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4>New Message</h4>
+        <hr />
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.objectM, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.objectM, new { htmlAttributes = new { @class = "form-control", placeholder = "Object", @required = "", oninvalid = "this.setCustomValidity('Please Enter a Content')" } })
+                @Html.ValidationMessageFor(model => model.objectM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contentM, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contentM, new { htmlAttributes = new { @class = "form-control", placeholder = "Content", @required = "", oninvalid = "this.setCustomValidity('Please Enter a Content')" } })
+                @Html.ValidationMessageFor(model => model.contentM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListFriends")
+</div>
